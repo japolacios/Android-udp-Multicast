@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/start_constraint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.redes.japo.updmulticast.gameStart">
+
+    <Button
+        android:id="@+id/startGame_btn"
+        style="@style/Base.TextAppearance.AppCompat.Widget.Switch"
+        android:layout_width="305dp"
+        android:layout_height="136dp"
+        android:text="Start Game"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="87dp"
+        android:layout_marginLeft="144dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+</android.support.constraint.ConstraintLayout>
