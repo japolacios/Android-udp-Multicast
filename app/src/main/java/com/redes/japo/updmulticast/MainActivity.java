@@ -21,23 +21,27 @@ public class MainActivity extends AppCompatActivity implements Observer {
         setContentView(R.layout.activity_main);
         //--------------------------------------------------------------
         //Call Com Instance
-        CommunicationManager.getInstance();
+        //CommunicationManager.getInstance();
         //Observe Com Instance
         CommunicationManager.getInstance().addObserver(this);
         //--------------------------------------------------------------
-        /*
-        // Acquire multicast lock
-        Context context =  getApplicationContext();
-        WifiManager wifi = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-        WifiManager.MulticastLock multicastLock = wifi.createMulticastLock("multicastLock");
-        multicastLock.setReferenceCounted(true);
-        multicastLock.acquire();
-        */
-        next_btn = (Button) findViewById(R.id.next_btn);
+        WifiManager wifi = (WifiManager) getApplicationContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        if (wifi != null){
+            WifiManager.MulticastLock lock = wifi.createMulticastLock("HelloAndroid");
+            lock.acquire();
+        }
+
+        next_btn = (Button) findViewById(R.id.start_btn);
         next_btn.setOnClickListener(new Button.OnClickListener(){
             public void onClick(View view){
-                Intent myIntent = new Intent(view.getContext(), gameStart.class); /** Class name here */
+
+                Intent myIntent = new Intent(view.getContext(), GameControl.class);
                 startActivityForResult(myIntent, 0);
+
+
+                //--------------------------------------------------------------------------
+                ContentMessage tempAutoId = new ContentMessage('c','a',3,0);
+                CommunicationManager.getInstance().sendMessage(tempAutoId);
             }
         });
 

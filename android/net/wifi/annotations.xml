@@ -1,0 +1,5 @@
+<root>
+    <item name='android.net.wifi.WifiManager'>
+        <annotation name='java.lang.Deprecated' />
+    </item>
+</root>
